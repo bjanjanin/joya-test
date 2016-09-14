@@ -1,0 +1,303 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Joya</title>
+		<meta name="title" content="" />
+		<meta name="description" content="" />
+        <link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-touch-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-touch-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-touch-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon-180x180.png">
+        <link rel="icon" type="image/png" href="/favicon/favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/png" href="/favicon/favicon-16x16.png" sizes="16x16">
+        <link rel="manifest" href="/favicon/manifest.json">
+        <link rel="shortcut icon" href="/favicon/favicon.ico">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="msapplication-TileImage" content="/favicon/mstile-144x144.png">
+        <meta name="msapplication-config" content="/favicon/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+        
+       <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script type="text/javascript" src="jquery.onepage-scroll.js"></script>
+		<link href='css/style.css' rel='stylesheet' type='text/css'>
+		<meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, minimum-scale=1, user-scalable=no">
+		<style>
+		</style>
+		<script>
+            window.types = ['home', 'about', 'marcopolo', 'contact', 'null'];
+            $(document).ready(function() {
+                $(".main").onepage_scroll({
+                    sectionContainer : "section",
+                    responsiveFallback : false,
+                    loop : false,
+                    beforeMove : function(index) {
+                        $('nav.headernav ul li').removeClass('current');
+                        $('nav.headernav ul li:nth-child(' + index + ')').addClass('current');
+                    }
+                });
+                $('html, body, section, .wrapper').css({
+                    'overflow' : 'hidden',
+                    'height' : '100%'
+                });
+                hash();
+                $('.mobile-menu-icon').click(function() {
+                    $('.cover').fadeIn();
+                    $('nav.headernav ul').removeClass('desktop').addClass('mobile').fadeIn();
+                    $(this).hide();
+                });
+                $('.cover').click(function() {
+                    $('.cover').fadeOut();
+                    $('nav ul.mobile').hide();
+                    $('.mobile-menu-icon').show();
+                });
+                $('nav.headernav ul li').click(function() {
+                    if ($('nav.headernav ul').hasClass('mobile'))
+                        $('.cover').click();
+                });
+                var isMobile = {
+                    Android : function() {
+                        return /Android/i.test(navigator.userAgent);
+                    },
+                    BlackBerry : function() {
+                        return /BlackBerry/i.test(navigator.userAgent);
+                    },
+                    iOS : function() {
+                        return /iPhone|iPad|iPod/i.test(navigator.userAgent);
+                    },
+                    Windows : function() {
+                        return /IEMobile/i.test(navigator.userAgent);
+                    },
+                    any : function() {
+                        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Windows());
+                    }
+                };
+                if (isMobile.Android()) {
+                    $('.appstoreCleo').hide();
+                    $('.appstoreFliplip').hide();
+                    $('#logolinkCleo').attr('href', $('.googleplayCleo').attr('href'));
+                    $('#logolinkFliplip').attr('href', $('.googleplayFliplip').attr('href'));
+                }
+                if (isMobile.iOS()) {
+                    $('.googleplayCleo').hide();
+                    $('.googleplayFliplip').hide();
+                    $('#logolinkCleo').attr('href', $('.appstoreCleo').attr('href'));
+                    $('#logolinkFliplip').attr('href', $('.appstoreFliplip').attr('href'));
+                }
+
+                function email_check(id, focus) {
+                    var re = /\S+@\S+\.\S+/;
+                    if (re.test($(id).val())) {
+                        $(id).removeClass('error');
+                        return true;
+                    } else {
+                        $(id).addClass('error');
+                        if (focus)
+                            $(id).focus();
+                        return false;
+                    }
+                }
+
+                function content_check(id, focus) {
+                    if ($(id).val() != '' && $(id).val()) {
+                        $(id).removeClass('error');
+                        return true;
+                    } else {
+                        $(id).addClass('error');
+                        if (focus)
+                            $(id).focus();
+                        return false;
+                    }
+                }
+
+
+                $('#messageinput').keyup(function() {
+                    content_check($(this), false);
+                });
+                $('#messageinput').focusout(function() {
+                    content_check($(this), false);
+                });
+                $('#emailinput').keyup(function() {
+                    email_check($(this), false);
+                });
+                $('#emailinput').focusout(function() {
+                    email_check($(this), false);
+                });
+                $('#contactform').submit(function() {
+                    if (!$(this).hasClass('working')) {
+                        content_check($('#messageinput'), false);
+                        email_check($('#emailinput'), false);
+                        var btn = $('#submitbtn'),
+                            form = $(this);
+                        if (content_check($('#messageinput'), true)) {
+                            if (email_check($('#emailinput'), true)) {
+                                $(this).addClass('working');
+                                btn.attr('value', 'Wait...');
+                                $.ajax({
+                                    type : "POST",
+                                    url : "mail.php",
+                                    data : {
+                                        email : $('#emailinput').val(),
+                                        message : $('#messageinput').val()
+                                    },
+                                    success : function(theResponse) {
+                                        btn.attr('value', 'Sent!');
+                                        btn.addClass('sent');
+                                        form.removeClass('working');
+                                    }
+                                });
+                            }
+                        }
+                    }
+                    return false;
+                });
+            });
+            function hash() {
+                window.dontpush = true;
+                if (window.location.hash != "") {
+                    init_index = window.location.hash.replace("#", "");
+                    if (isNaN(init_index)) {
+                        switch(init_index) {
+                        case 'home':
+                            $(".main").moveTo(1);
+                            break;
+                        case 'about':
+                            $(".main").moveTo(2);
+                            break;
+                        case 'cleo':
+                            $(".main").moveTo(4);
+                            break;
+                        case 'fliplip':
+                            $(".main").moveTo(3);
+                            break;
+                        case 'contact':
+                            $(".main").moveTo(5);
+                            break;
+                        }
+                    } else
+                        $(".main").moveTo(init_index + 1);
+                } else
+                    $(".main").moveTo(1);
+            }
+
+
+            $(window).bind('hashchange', function() {
+                hash();
+                return true;
+            });
+            document.addEventListener("touchmove", function(event) {
+                event.preventDefault();
+            });
+		</script>
+	</head>
+	<body>
+		<div class="cover">
+			<div class="close">
+				<i></i>
+				<i></i>
+			</div>
+		</div>
+		<nav class="headernav">
+			<i class="mobile-menu-icon"></i>
+			<ul class="desktop">
+				<li onclick='$(".main").moveTo(1);' class="current">
+					Home
+				</li>
+				<li>
+					<a onclick='$(".main").moveTo(2);'>About</a>
+				</li>
+				<li>
+					<a onclick='$(".main").moveTo(3);'>Marco Polo</a>
+				</li>
+				</li>
+				<li>
+					<a onclick='$(".main").moveTo(4);'>Contact</a>
+				</li>
+			</ul>
+		</nav>
+		<div class="wrapper">
+			<div class="main">
+				<section class="page1">
+					<div class="page_container"></div>
+					<div class="logo">
+						<a href="index.html">Joya</a>
+					</div>
+					<a class="more-fun" onclick='$(".main").moveDown();' data-index="2">More fun</a>
+
+					<div class="clear"></div>
+				</section>
+
+				<section class="page2">
+					<div class="page_container">
+						<h1>About Us</h1>
+						<h2>Joya was founded in 2012 to help people feel close no matter the distance, enabling people to remain connected in convenient and meaningful ways</h2>
+					</div>
+				</section>
+
+				<section class="page5">
+
+				<div class="page_container">
+          <img src="img/mp-logo.png" alt="Marco Polo app logo" class="mp-logo">
+          <img src="img/mp-title.png" alt="Marco Polo app title" class="mp-title">
+				<h1 class="marcopolo">Marco Polo</h1>
+				
+				<div class="download-box">
+					<a class="appstore" href="https://itunes.apple.com/us/app/marco-polo-video-walkie-talkie/id912561374?mt=8">Download from AppStore</a>
+					<a class="googleplay" href="https://play.google.com/store/apps/details?id=co.happybits.marcopolo&hl=en">Download from Google Play</a>
+				</div>
+
+				</section>
+
+				<section class="page6">
+					<div class="page_container">
+						<h1>Speak with us</h1>
+
+						<div class="email-form">
+							<form action="" method="post" id="contactform">
+								<textarea id="messageinput" class="message-box" placeholder="Message"></textarea>
+								<br />
+								<input id="emailinput" type="text" class="email-box" placeholder="Email" />
+								<input id="submitbtn" type="submit" value="Submit">
+							</form>
+						</div>
+					</div>
+					<footer>
+						© Joya Communications Inc 2016
+						<nav>
+							<ul>
+                <li>
+                    <a href="law-enforcement.html">Law Enforcement</a>
+                </li>
+								<li>
+									<a href="privacy.html">Privacy</a>
+								</li>
+								<li>
+									<a href="terms.html">Terms</a>
+								</li>
+							</ul>
+						</nav>
+					</footer>
+				</section>
+			</div>
+		</div>
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    
+      ga('create', 'UA-38085274-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+	</body>
+</html>
