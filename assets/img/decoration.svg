@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" height="735px" width="396px" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 396 735">
+ <title>decoration</title>
+ <style>@keyframes flickerAnim-1 {
+        0%   { opacity:1; }
+        50%  { opacity:0; }
+        100% { opacity:1; }
+      }
+      .animate-1 {
+          opacity:1;  
+          animation: flickerAnim-1 3s infinite;
+      }
+      @keyframes flickerAnim-2 {
+        0%   { opacity:0; }
+        50%  { opacity:1; }
+        100% { opacity:0; }
+      }
+      .animate-2 {
+          opacity:0;  
+          animation: flickerAnim-2 7s infinite;
+      }
+      @keyframes flickerAnim-3 {
+        0%   { opacity:0; }
+        50%  { opacity:1; }
+        100% { opacity:0; }
+      }
+      .animate-3 {
+          opacity:0;  
+          animation: flickerAnim-3 12s infinite;
+      }
+      @keyframes flickerAnim-4 {
+        0%   { opacity:1; }
+        50%  { opacity:0; }
+        100% { opacity:1; }
+      }
+      .animate-4 {
+          opacity:0;  
+          animation: flickerAnim-4 5s infinite;
+      }</style>
+ <g id="group" transform="translate(-436 -825)">
+  <g id="group2" transform="translate(0 800)">
+   <g id="decoration" transform="translate(436 24)">
+    <ellipse id="Oval-2" rx="10.004" ry="10.006" class="animate-1" cy="36.322" cx="261.93" fill="#F2E03F"/>
+    <ellipse id="Oval-2" rx="10.805" ry="10.806" class="animate-2" cy="106.27" cx="189.9" fill="#EC524C"/>
+    <ellipse id="Oval-2" rx="8.0035" ry="8.0048" class="animate-3" cy="159" cx="271.14" fill="#58DAB4"/>
+    <polygon id="Rectangle" class="animate-2" points="16.96 0.92291 33.304 26.542 0.61661 26.542" fill="#FC9B71"/>
+    <polygon id="Rectangle" class="animate-4" points="385.19 29.936 395.19 45.145 375.18 45.145" fill="#FBC7B4"/>
+   </g>
+  </g>
+ </g>
+</svg>

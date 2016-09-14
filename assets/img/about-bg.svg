@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1200px" height="550px" viewBox="0 0 1200 550" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>about</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="1200" height="550"></rect>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Joya-web-assets" transform="translate(-699.000000, -1690.000000)">
+            <g id="about" transform="translate(699.000000, 1690.000000)">
+                <g id="Group-4">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="bg" fill="#4D6BAD" xlink:href="#path-1"></use>
+                    <g id="MP-Ball" mask="url(#mask-2)">
+                        <g transform="translate(-241.000000, -628.000000)">
+                            <path d="M371.950012,0.432432432 C141.275676,183.617464 0.00332640333,500.640333 0.00332640333,810.677755 C0.00332640333,913.097713 15.4544699,1011.89189 44.1114345,1104.91476 C429.608316,762.378378 995.545946,597.355509 1332.21123,560.848233 C1149.00956,271.351351 749.059459,-4.74012474 371.950012,0.432432432 Z" id="Fill-3" fill="#F2E03F"></path>
+                            <g id="Group-7" stroke-width="1" fill="none" transform="translate(883.496881, 604.305613)">
+                                <path d="M440.883992,0.657380457 C362.796674,452.632432 304.218711,839.809148 0.135550936,1243.25198 C35.3122661,1247.01081 70.9879418,1249.03992 107.17921,1249.03992 C480.617879,1249.03992 805.973389,1043.91726 977.299792,740.299792 C937.820422,503.338538 909.226848,206.479359 739.11248,53.6943868 C676.310993,-2.70956933 516.22838,43.2916941 440.883992,0.657380457 L890.839042,8.71001184" id="Fill-5" fill="#EC368D"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

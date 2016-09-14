@@ -1,1 +1,3 @@
-# joya-test
+# Joya
+
+Splash page website.

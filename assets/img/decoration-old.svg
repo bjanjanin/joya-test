@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="396px" height="735px" viewBox="0 0 396 735" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>decoration</title>
+    <style>
+      @keyframes flickerAnim-1 {
+        0%   { opacity:1; }
+        50%  { opacity:0; }
+        100% { opacity:1; }
+      }
+      .animate-1 {
+          opacity:1;  
+          animation: flickerAnim-1 3s infinite;
+      }
+      @keyframes flickerAnim-2 {
+        0%   { opacity:0; }
+        50%  { opacity:1; }
+        100% { opacity:0; }
+      }
+      .animate-2 {
+          opacity:0;  
+          animation: flickerAnim-2 7s infinite;
+      }
+      @keyframes flickerAnim-3 {
+        0%   { opacity:0; }
+        50%  { opacity:1; }
+        100% { opacity:0; }
+      }
+      .animate-3 {
+          opacity:0;  
+          animation: flickerAnim-3 12s infinite;
+      }
+      @keyframes flickerAnim-4 {
+        0%   { opacity:1; }
+        50%  { opacity:0; }
+        100% { opacity:1; }
+      }
+      .animate-4 {
+          opacity:0;  
+          animation: flickerAnim-4 5s infinite;
+      }
+    </style>
+    <g id="group" transform="translate(-436.000000, -825.000000)">
+        <g id="group2" transform="translate(0.000000, 800.000000)">
+            <g id="decoration" transform="translate(436.000000, 24.000000)">
+                <ellipse id="Oval-2" fill="#F2E03F" cx="261.931979" cy="36.3218527" rx="10.004417" ry="10.0059382" class="animate-1"></ellipse>
+                <ellipse id="Oval-2" fill="#EC524C" cx="189.900177" cy="106.274347" rx="10.8047703" ry="10.8064133" class="animate-2"></ellipse>
+                <ellipse id="Oval-2" fill="#58DAB4" cx="271.136042" cy="159.004751" rx="8.00353357" ry="8.00475059" class="animate-3"></ellipse>
+                <polygon id="Rectangle" fill="#FC9B71" points="16.9604089 0.922907188 33.3042101 26.5416958 0.616607774 26.5416958" class="animate-2"></polygon>
+                <polygon id="Rectangle" fill="#FBC7B4" points="385.186396 29.935867 395.190813 45.1448931 375.181979 45.1448931" class="animate-4"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
